@@ -2,7 +2,7 @@
 /**
  * printvile - inv
  */
-void printvile(void)
+void printvile(int *sta)
 {
 char **env = environ;
 int i = 0;
@@ -11,6 +11,7 @@ for (i = 0; env[i]; i++)
 write(STDOUT_FILENO, env[i], _strlen(env[i]));
 write(STDOUT_FILENO, "\n", 1);
 }
+(*sta) = 0;
 }
 /**
  * getppt - inv
@@ -120,9 +121,9 @@ int main(void)
 {
 char yassirwait[] = "#cisfun$ ", storemypath[100];
 char *storemycmd = NULL, *cmdtosend[100];
-size_t getmycmdcnt = 0, storemygetline = 0, ex = 1;
-
-while (1 && ex == 1)
+size_t getmycmdcnt = 0, storemygetline = 0;
+int sta = 0;
+while (1)
 {
 if (isatty(STDIN_FILENO))
 {
@@ -143,7 +144,7 @@ if (_strcmp(storemycmd, "exit") != 0)
 {
 if (_strcmp(storemycmd, "env") == 0)
 {
-printvile();
+printvile(&sta);
 }
 else
 {
@@ -152,7 +153,7 @@ execs(storemycmd, storemypath, cmdtosend);
 }
 else
 {
-ex = 0;
+exitsh(storemycmd, &sta);
 }
 }
 free(storemycmd);
