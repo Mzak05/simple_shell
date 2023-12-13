@@ -7,7 +7,7 @@
 char *_strdup(const char *so)
 {
 size_t le = 0;
-char * du;
+char  *du;
 size_t i;
 const char *te = so;
 if (so == NULL)
