@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
  * printvile - inv
+ * @sta: i
  */
 void printvile(int *sta)
 {
@@ -153,7 +154,7 @@ execs(storemycmd, storemypath, cmdtosend);
 }
 else
 {
-exitsh(storemycmd, &sta);
+exitsh(storemycmd);
 }
 }
 free(storemycmd);

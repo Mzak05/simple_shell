@@ -1,11 +1,19 @@
 #include "shell.h"
 /**
  * exitsh - fct
- * @storemycmd: ii
- * @sta: ii
+ * @storemycmd: i
  */
-void exitsh(char *storemycmd, int *sta)
+void exitsh(char *storemycmd)
+
+{
+if (storemycmd == NULL)
 {
 free(storemycmd);
-exit(*sta);
+exit(EXIT_SUCCESS);
+}
+else
+{
+free(storemycmd);
+exit(EXIT_SUCCESS);
+}
 }
