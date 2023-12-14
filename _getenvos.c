@@ -1,23 +1,18 @@
 #include "shell.h"
 /**
- * getenvos - inv
- * @data: dat
- * Return: info
+ * getenvos - --
+ * @data: iii
+ * Return: iii
  */
 char *getenvos(char *data)
 {
-char *spr, *valo;
-int i = 0;
+int i;
+size_t len = _strlen(data);
 for (i = 0; environ[i] != NULL; i++)
 {
-spr = strtok(environ[i], "=");
-if (spr != NULL && strcmp(spr, data) == 0)
+if (_strncmp(environ[i], data, len) == 0 && environ[i][len] == '=')
 {
-valo = strtok(NULL, "=");
-if (valo != NULL)
-{
-return (valo);
-}
+return (_strdup(environ[i] + len + 1));
 }
 }
 return (NULL);
