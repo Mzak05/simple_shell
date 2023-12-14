@@ -8,10 +8,14 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 extern char **environ;
+void getppt(char *storemycmd, char *storemypath);
+char **splitCmd(char *storemycmd);
 char *_strncpy(char *dest, char *src, int n);
 char *getenvos(char *data);
+void execs(char **cmdtosend);
 char *_strdup(const char *so);
 void exitsh(char *storemycmd);
+void printvile(int *sta);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *_strncat(char *dest, char *src, int n);
