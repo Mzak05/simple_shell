@@ -1,4 +1,8 @@
 #include "shell.h"
+/**
+ * clear_info - initializes info_type struct
+ * @infffo: struct address
+ */
 void clear_info(info_type *infffo)
 {
 	infffo->arg = NULL;
@@ -7,6 +11,11 @@ void clear_info(info_type *infffo)
 	infffo->argc = 0;
 }
 
+/**
+ * set_info - initializes info_type struct
+ * @infffo: struct address
+ * @argv: argument vector
+ */
 void set_info(info_type *infffo, char **argv)
 {
 	int i = 0;
@@ -34,6 +43,11 @@ void set_info(info_type *infffo, char **argv)
 	}
 }
 
+/**
+ * free_info - frees info_type struct fields
+ * @infffo: struct address
+ * @all: true if freeing all fields
+ */
 void free_info(info_type *infffo, int all)
 {
 	str_free(infffo->argv);

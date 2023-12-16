@@ -1,4 +1,10 @@
 #include "shell.h"
+/**
+ * **str_split - splits a string into words. Repeat delimiters are ignored
+ * @achstr: the input string
+ * @dli: the delimeter string
+ * Return: a pointer to an array of strings, or NULL on failure
+ */
 
 char **str_split(char *achstr, char *dli)
 {
@@ -40,6 +46,13 @@ char **str_split(char *achstr, char *dli)
 	s[j] = NULL;
 	return (s);
 }
+
+/**
+ * **str_split2 - splits a string into words
+ * @achstr: the input string
+ * @dli: the delimeter
+ * Return: a pointer to an array of strings, or NULL on failure
+ */
 char **str_split2(char *achstr, char dli)
 {
 	int i, j, k, m, numwords = 0;

@@ -1,9 +1,10 @@
 #include "shell.h"
 /**
- *shell_loop - shellloop
- * @infffo: stru
- * @argv: argv
- * Return: 0 or 1
+ *shell_loop - main shell loop
+ * @infffo: the parameter & return info struct
+ * @argv: the argument vector from main()
+ *
+ * Return: 0 on success, 1 on error, or error code
  */
 int shell_loop(info_type *infffo, char **argv)
 {
@@ -42,9 +43,13 @@ int shell_loop(info_type *infffo, char **argv)
 }
 
 /**
- * find_builtin_cmd - cmdfind
- * @infffo: stru
- * Return: -1 or 0 or 1 or -2
+ * find_builtin_cmd - finds a builtin command
+ * @infffo: the parameter & return info struct
+ *
+ * Return: -1 if builtin not found,
+ *			0 if builtin executed successfully,
+ *			1 if builtin found but not successful,
+ *			-2 if builtin signals exit()
  */
 int find_builtin_cmd(info_type *infffo)
 {
@@ -56,8 +61,6 @@ int find_builtin_cmd(info_type *infffo)
 		{"history", _myhistory},
 		{"setenv", _mysetenv},
 		{"unsetenv", _my_unsetenv},
-		{"cd", _mydir},
-		{"alias", _myalias},
 		{NULL, NULL}
 	};
 
@@ -72,8 +75,9 @@ int find_builtin_cmd(info_type *infffo)
 }
 
 /**
- * find_command - cmdptfind
- * @infffo: stru
+ * find_command - finds a command in PATH
+ * @infffo: the parameter & return info struct
+ *
  * Return: void
  */
 void find_command(info_type *infffo)
@@ -113,8 +117,9 @@ void find_command(info_type *infffo)
 }
 
 /**
- * fork_command - fork
- * @infffo: stru
+ * fork_command - forks a an exec thread to run cmd
+ * @infffo: the parameter & return info struct
+ *
  * Return: void
  */
 void fork_command(info_type *infffo)
@@ -135,8 +140,8 @@ void fork_command(info_type *infffo)
 			if (errno == EACCES)
 				exit(126);
 			exit(1);
-		}
-			}
+}
+	}
 	else
 	{
 		wait(&(infffo->status));

@@ -1,10 +1,10 @@
 #include "shell.h"
 /**
- * is_chain_del - chaindetst
- * @infffo: stru
- * @bufbuf: bufr
- * @p: bufadres
- * Return: 0 or 1
+ * is_chain_del - test if current char in buffer is a chain delimeter
+ * @infffo: the parameter struct
+ * @bufbuf: the char buffer
+ * @p: address of current position in buf
+ * Return: 1 if chain delimeter, 0 otherwise
  */
 int is_chain_del(info_type *infffo, char *bufbuf, size_t *p)
 {
@@ -22,9 +22,9 @@ int is_chain_del(info_type *infffo, char *bufbuf, size_t *p)
 		j++;
 		infffo->cmd_buf_type = CMD_AND;
 	}
-	else if (bufbuf[j] == ';')
+	else if (bufbuf[j] == ';') /* found end of this command */
 	{
-		bufbuf[j] = 0;
+		bufbuf[j] = 0; /* replace semicolon with null */
 		infffo->cmd_buf_type = CMD_CHAIN;
 	}
 	else
@@ -34,12 +34,12 @@ int is_chain_del(info_type *infffo, char *bufbuf, size_t *p)
 }
 
 /**
- * check_chain - check
- * @infffo: stru
- * @bufbuf: chabuff
- * @p: acpbuff
- * @i: bufstart
- * @len: bufflen
+ * check_chain - checks we should continue chaining based on last status
+ * @infffo: the parameter struct
+ * @bufbuf: the char buffer
+ * @p: address of current position in buffer
+ * @i: starting position in buf
+ * @len: length of buffer
  *
  * Return: Void
  */
@@ -68,9 +68,10 @@ void check_chain(info_type *infffo, char *bufbuf, size_t *p, size_t i, size_t le
 }
 
 /**
- * replace_alias - rpstri
- * @infffo: stru
- * Return: 0 or 1
+ * replace_alias - replaces an aliases in the tokenized string
+ * @infffo: the parameter struct
+ *
+ * Return: 1 if replaced, 0 otherwise
  */
 int replace_alias(info_type *infffo)
 {
@@ -96,9 +97,10 @@ int replace_alias(info_type *infffo)
 }
 
 /**
- * replace_vars_str - strplace
- * @infffo: stru
- * Return: 0 or 1
+ * replace_vars_str - replaces vars in the tokenized string
+ * @infffo: the parameter struct
+ *
+ * Return: 1 if replaced, 0 otherwise
  */
 int replace_vars_str(info_type *infffo)
 {
@@ -136,11 +138,11 @@ int replace_vars_str(info_type *infffo)
 }
 
 /**
- * replace_str - strplace
- * @previous: stradre
- * @next: nstr
+ * replace_str - replaces string
+ * @previous: address of old string
+ * @next: new string
  *
- * Return: 0 or 1
+ * Return: 1 if replaced, 0 otherwise
  */
 int replace_str(char **previous, char *next)
 {

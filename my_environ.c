@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
- * _myenvir - prcuenv
- * @infffo: Stru
+ * _myenvir - prints the current environment
+ * @infffo: Structure containing potential arguments
  * Return: Always 0
  */
 int _myenvir(info_type *infffo)
@@ -11,10 +11,11 @@ int _myenvir(info_type *infffo)
 }
 
 /**
- * _get_env - envvar
- * @infffo: Stru
- * @envname: envvar
- * Return:  val
+ * _get_env - gets the value of an environ variable
+ * @infffo: Structure containing potential arguments
+ * @envname: env var name
+ *
+ * Return: the value
  */
 char *_get_env(info_type *infffo, const char *envname)
 {
@@ -32,8 +33,8 @@ char *_get_env(info_type *infffo, const char *envname)
 }
 
 /**
- * _mysetenv - newenvvar
- * @infffo: Stru
+ * _mysetenv - Initialize a new environment variable
+ * @infffo: Structure containing potential arguments
  *  Return: Always 0
  */
 int _mysetenv(info_type *infffo)
@@ -49,8 +50,8 @@ int _mysetenv(info_type *infffo)
 }
 
 /**
- * _my_unsetenv - rmenvvar
- * @infffo: Stru
+ * _my_unsetenv - Remove an environment variable
+ * @infffo: Structure containing potential arguments
  *  Return: Always 0
  */
 int _my_unsetenv(info_type *infffo)
@@ -69,8 +70,8 @@ int _my_unsetenv(info_type *infffo)
 }
 
 /**
- * p_env_list - fill env
- * @infffo: Stru
+ * p_env_list - populates env linked list
+ * @infffo: Structure containing potential arguments
  * Return: Always 0
  */
 int p_env_list(info_type *infffo)

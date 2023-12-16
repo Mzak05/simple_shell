@@ -1,10 +1,10 @@
 #include "shell.h"
 /**
- * main - mainfun
- * @ac: argcount
- * @argv: argvect
+ * main - entry point
+ * @ac: arg count
+ * @argv: arg vector
  *
- * Return: 0 or 1
+ * Return: 0 on success, 1 on error
  */
 int main(int ac, char **argv)
 {

@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
- *_eput_str - print string
- * @achstr: printed sr
+ *_eput_str - prints an input string
+ * @achstr: the string to be printed
  *
- * Return: Nada
+ * Return: Nothing
  */
 void _eput_str(char *achstr)
 {
@@ -19,10 +19,11 @@ void _eput_str(char *achstr)
 }
 
 /**
- * _eputchar - char to standarderr
- * @caca: char 
+ * _eputchar - writes the character c to stderr
+ * @caca: The character to print
+ *
  * Return: On success 1.
- * On error -1
+ * On error, -1 is returned, and errno is set appropriately.
  */
 int _eputchar(char caca)
 {
@@ -40,11 +41,12 @@ int _eputchar(char caca)
 }
 
 /**
- * _put_fd - print caca
- * @caca: char
- * @fd: filedescriptor
+ * _put_fd - writes the character c to given fd
+ * @caca: The character to print
+ * @fd: The filedescriptor to write to
  *
- * Return: 1 on success On error -1
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
 int _put_fd(char caca, int fd)
 {
@@ -62,11 +64,12 @@ int _put_fd(char caca, int fd)
 }
 
 /**
- *_puts_fd - print string
- * @achstr: string
- * @fd: filedescriptor
- * Return: number of chars
-*/
+ *_puts_fd - prints an input string
+ * @achstr: the string to be printed
+ * @fd: the filedescriptor to write to
+ *
+ * Return: the number of chars put
+ */
 int _puts_fd(char *achstr, int fd)
 {
 	int i = 0;

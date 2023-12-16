@@ -1,8 +1,9 @@
 #include "shell.h"
 /**
- * _strlength - strlenth
- * @achstr: str
- * Return: intlen
+ * _strlength - returns the length of a string
+ * @achstr: the string whose length to check
+ *
+ * Return: integer length of string
  */
 int _strlength(char *achstr)
 {
@@ -17,11 +18,11 @@ int _strlength(char *achstr)
 }
 
 /**
- * _str_comp - comparestr
- * @fs: fstr
- * @ss: sstr
+ * _str_comp - performs lexicogarphic comparison of two strangs.
+ * @s1: the first strang
+ * @s2: the second strang
  *
- * Return: neg or pos or zeo
+ * Return: negative if s1 < s2, positive if s1 > s2, zero if s1 == s2
  */
 int _str_comp(char *fs, char *ss)
 {
@@ -39,10 +40,11 @@ int _str_comp(char *fs, char *ss)
 }
 
 /**
- * starts_with - hastck
- * @ssearch: strsearch
- * @ssfind: sstr
- * Return: nexchaadr
+ * starts_with - checks if needle starts with haystack
+ * @ssearch: string to search
+ * @ssfind: the substring to find
+ *
+ * Return: address of next char of haystack or NULL
  */
 char *starts_with(const char *ssearch, const char *ssfind)
 {
@@ -53,11 +55,11 @@ char *starts_with(const char *ssearch, const char *ssfind)
 }
 
 /**
- * _str_cat - sttwoconca
- * @desti: bufdest
- * @sbuf: bufsor
+ * _str_cat - concatenates two strings
+ * @desti: the destination buffer
+ * @sbuf: the source buffer
  *
- * Return: destbufadr
+ * Return: pointer to destination buffer
  */
 char *_str_cat(char *desti, char *sbuf)
 {

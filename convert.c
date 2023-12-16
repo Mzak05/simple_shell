@@ -1,4 +1,9 @@
 #include "shell.h"
+/**
+ * _errors_sti - fsfsf
+ * @achstr: th
+ * Return: qdd
+ */
 int _errors_sti(char *achstr)
 {
 	int i = 0;
@@ -21,6 +26,12 @@ int _errors_sti(char *achstr)
 	return (result);
 }
 
+/**
+ * print_error - prin
+ * @infffo: dqsdqs
+ * @badstr: qsdq
+ * Return: qsdqdq
+ */
 void print_error(info_type *infffo, char *badstr)
 {
 	_eput_str(infffo->fname);
@@ -32,6 +43,12 @@ void print_error(info_type *infffo, char *badstr)
 	_eput_str(badstr);
 }
 
+/**
+ * print_decimal - functi
+ * @inpp: tht
+ * @fd: the filed
+ * Return: ndqs
+ */
 int print_decimal(int inpp, int fd)
 {
 	int (*__putchar)(char) = _putchar;
@@ -64,6 +81,14 @@ int print_decimal(int inpp, int fd)
 	return (c);
 }
 
+/**
+ * convert_number - converter func
+ * @numbobo: number
+ * @base: azdazd
+ * @flags: qdada
+ * @rayas: iii
+ * Return: striqs
+ */
 char *convert_number(long int numbobo, int base, int rayas)
 {
 	static char *array;
@@ -92,6 +117,12 @@ char *convert_number(long int numbobo, int base, int rayas)
 	return (p);
 }
 
+/**
+ * remove_comments - function replaces first instance of '#' with '\0'
+ * @buf: address of the string to modify
+ *
+ * Return: Always 0;
+ */
 void remove_comments(char *bufbuf)
 {
 	int i;
