@@ -168,12 +168,10 @@ void remove_comments(char *);
 
 /* my_dir.c */
 int _myexit(info_type *infffo);
-int _mydir(info_type *infffo);
 int _myhelp(info_type *infffo);
 
 /* set_alias.c */
 int _myhistory(info_type *infffo);
-int _myalias(info_type *infffo);
 
 /*get_line.c */
 ssize_t get_input(info_type *);

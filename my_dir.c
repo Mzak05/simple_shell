@@ -27,55 +27,6 @@ int _myexit(info_type *infffo)
 }
 
 /**
- * _mydir - changes the current directory of the process
- * @infffo: Structure containing potential arguments
- *  Return: Always 0
- */
-int _mydir(info_type *infffo)
-{
-	char *s, *dir, buffer[1024];
-	int chdir_rt;
-
-	s = getcwd(buffer, 1024);
-	if (!s)
-		_puts("TODO: >>getcwd failure emsg here<<\n");
-	if (!infffo->argv[1])
-	{
-		dir = _get_env(infffo, "HOME=");
-		if (!dir)
-			chdir_rt = 
-				chdir((dir = _get_env(infffo, "PWD=")) ? dir : "/");
-		else
-			chdir_rt = chdir(dir);
-	}
-	else if (_str_comp(infffo->argv[1], "-") == 0)
-	{
-		if (!_get_env(infffo, "OLDPWD="))
-		{
-			_puts(s);
-			_putchar('\n');
-			return (1);
-		}
-		_puts(_get_env(infffo, "OLDPWD=")), _putchar('\n');
-		chdir_rt = 
-			chdir((dir = _get_env(infffo, "OLDPWD=")) ? dir : "/");
-	}
-	else
-		chdir_rt = chdir(infffo->argv[1]);
-	if (chdir_rt == -1)
-	{
-		print_error(infffo, "can't cd to ");
-		_eput_str(infffo->argv[1]), _eputchar('\n');
-	}
-	else
-	{
-		_setenviro(infffo, "OLDPWD", _get_env(infffo, "PWD="));
-		_setenviro(infffo, "PWD", getcwd(buffer, 1024));
-	}
-	return (0);
-}
-
-/**
  * _myhelp - changes the current directory of the process
  * @infffo: Structure containing potential arguments
  *  Return: Always 0
