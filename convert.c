@@ -1,8 +1,9 @@
 #include "shell.h"
 /**
- * _errors_sti - fsfsf
- * @achstr: th
- * Return: qdd
+ * _errors_sti - converts a string to an integer
+ * @achstr: the string to be converted
+ * Return: 0 if no numbers in string, converted number otherwise
+ *       -1 on error
  */
 int _errors_sti(char *achstr)
 {
@@ -27,10 +28,11 @@ int _errors_sti(char *achstr)
 }
 
 /**
- * print_error - prin
- * @infffo: dqsdqs
- * @badstr: qsdq
- * Return: qsdqdq
+ * print_error - prints an error message
+ * @infffo: the parameter & return info struct
+ * @badstr: string containing specified error type
+ * Return: 0 if no numbers in string, converted number otherwise
+ * -1 on error
  */
 void print_error(info_type *infffo, char *badstr)
 {
@@ -44,10 +46,10 @@ void print_error(info_type *infffo, char *badstr)
 }
 
 /**
- * print_decimal - functi
- * @inpp: tht
- * @fd: the filed
- * Return: ndqs
+ * print_decimal - function prints a decimal (integer) number (base 10)
+ * @inpp: the input
+ * @fd: the filedescriptor to write to
+ * Return: number of characters
  */
 int print_decimal(int inpp, int fd)
 {
@@ -82,12 +84,12 @@ int print_decimal(int inpp, int fd)
 }
 
 /**
- * convert_number - converter func
+ * convert_number - converter function, a clone of itoa
  * @numbobo: number
- * @base: azdazd
- * @flags: qdada
- * @rayas: iii
- * Return: striqs
+ * @base: base
+ * @flags: argument flags
+ *
+ * Return: string
  */
 char *convert_number(long int numbobo, int base, int rayas)
 {

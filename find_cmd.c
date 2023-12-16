@@ -61,6 +61,8 @@ int find_builtin_cmd(info_type *infffo)
 		{"history", _myhistory},
 		{"setenv", _mysetenv},
 		{"unsetenv", _my_unsetenv},
+		{"cd", _mydir},
+		{"alias", _myalias},
 		{NULL, NULL}
 	};
 
@@ -129,6 +131,7 @@ void fork_command(info_type *infffo)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
+		/* TODO: PUT ERROR FUNCTION */
 		perror("Error:");
 		return;
 	}
@@ -140,7 +143,8 @@ void fork_command(info_type *infffo)
 			if (errno == EACCES)
 				exit(126);
 			exit(1);
-}
+		}
+		/* TODO: PUT ERROR FUNCTION */
 	}
 	else
 	{
