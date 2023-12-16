@@ -1,9 +1,4 @@
 #include "shell.h"
-/**
- * _myexit - exits the shell
- * @infffo: Structure containing potential arguments
- *  Return: exits with a given exit status
- */
 int _myexit(info_type *infffo)
 {
 	int exit_check;
@@ -26,11 +21,6 @@ int _myexit(info_type *infffo)
 	return (-2);
 }
 
-/**
- * _mydir - changes the current directory of the process
- * @infffo: Structure containing potential arguments
- *  Return: Always 0
- */
 int _mydir(info_type *infffo)
 {
 	char *s, *dir, buffer[1024];
@@ -75,13 +65,6 @@ int _mydir(info_type *infffo)
 	return (0);
 }
 
-/**
- * _myhelp - changes the current directory of the process
- * @infffo: Structure containing potential arguments
- *  Return: Always 0
- */
-int _myhelp(info_type *infffo)
-{
 	char **arg_arr;
 
 	arg_arr = infffo->argv;
