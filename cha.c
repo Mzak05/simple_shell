@@ -88,31 +88,31 @@ int replace_vars_str(info_type *infffo)
 
 		if (!_str_comp(infffo->argv[i], "$?"))
 		{
-			replace_str(&(infffo->argv[i]),
+			replacestr(&(infffo->argv[i]),
 				_str_dup(convert_number(infffo->status, 10, 0)));
 			continue;
 		}
 		if (!_str_comp(infffo->argv[i], "$$"))
 		{
-			replace_str(&(infffo->argv[i]),
+			replacestr(&(infffo->argv[i]),
 				_str_dup(convert_number(getpid(), 10, 0)));
 			continue;
 		}
 		node = node_starts_with(infffo->env, &infffo->argv[i][1], '=');
 		if (node)
 		{
-			replace_str(&(infffo->argv[i]),
+			replacestr(&(infffo->argv[i]),
 				_str_dup(_str_chr(node->str, '=') + 1));
 			continue;
 		}
-		replace_str(&infffo->argv[i], _str_dup(""));
+		replacestr(&infffo->argv[i], _str_dup(""));
 
 	}
 	return (0);
 }
 
 
-int replace_str(char **previous, char *next)
+int replacestr(char **previous, char *next)
 {
 	free(*previous);
 	*previous = next;

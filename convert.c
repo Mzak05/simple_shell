@@ -1,5 +1,5 @@
 #include "shell.h"
-int _errors_sti(char *achstr)
+int errorst(char *achstr)
 {
 	int i = 0;
 	unsigned long int result = 0;
@@ -21,11 +21,11 @@ int _errors_sti(char *achstr)
 	return (result);
 }
 
-void print_error(info_type *infffo, char *badstr)
+void printerr(info_type *infffo, char *badstr)
 {
 	_eput_str(infffo->fname);
 	_eput_str(": ");
-	print_decimal(infffo->line_count, STDERR_FILENO);
+	printdec(infffo->line_count, STDERR_FILENO);
 	_eput_str(": ");
 	_eput_str(infffo->argv[0]);
 	_eput_str(": ");
@@ -33,7 +33,7 @@ void print_error(info_type *infffo, char *badstr)
 }
 
 
-int print_decimal(int inpp, int fd)
+int printdec(int inpp, int fd)
 {
 	int (*__putchar)(char) = _putchar;
 	int i, c = 0;

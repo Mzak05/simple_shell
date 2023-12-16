@@ -1,5 +1,5 @@
 #include "shell.h"
-int shell_loop(info_type *infffo, char **argv)
+int shells(info_type *infffo, char **argv)
 {
 	ssize_t r = 0;
 	int builtin_ret = 0;
@@ -14,9 +14,9 @@ int shell_loop(info_type *infffo, char **argv)
 		if (r != -1)
 		{
 			set_info(infffo, argv);
-			builtin_ret = find_builtin_cmd(infffo);
+			builtin_ret = fbc(infffo);
 			if (builtin_ret == -1)
-				find_command(infffo);
+				fcmd(infffo);
 		}
 		else if (interactive(infffo))
 			_putchar('\n');
@@ -34,13 +34,13 @@ int shell_loop(info_type *infffo, char **argv)
 	}
 	return (builtin_ret);
 }
-int find_builtin_cmd(info_type *infffo)
+int fbc(info_type *infffo)
 {
 	int i, built_in_ret = -1;
 	builtin_table builtintbl[] = {
 		{"exit", _myexit},
 		{"env", _myenvir},
-		{"help", _myhelp},
+		{"help", helpmy},
 		{"history", _myhistory},
 		{"setenv", _mysetenv},
 		{"unsetenv", _my_unsetenv},
@@ -58,7 +58,7 @@ int find_builtin_cmd(info_type *infffo)
 	return (built_in_ret);
 }
 
-void find_command(info_type *infffo)
+void fcmd(info_type *infffo)
 {
 	char *path = NULL;
 	int i, k;
@@ -79,22 +79,22 @@ void find_command(info_type *infffo)
 	if (path)
 	{
 		infffo->path = path;
-		fork_command(infffo);
+		fkcmd(infffo);
 	}
 	else
 	{
 		if ((interactive(infffo) || _get_env(infffo, "PATH=")
 			|| infffo->argv[0][0] == '/') && is_command(infffo, infffo->argv[0]))
-			fork_command(infffo);
+			fkcmd(infffo);
 		else if (*(infffo->arg) != '\n')
 		{
 			infffo->status = 127;
-			print_error(infffo, "not found\n");
+			printerr(infffo, "not found\n");
 		}
 	}
 }
 
-void fork_command(info_type *infffo)
+void fkcmd(info_type *infffo)
 {
 	pid_t child_pid;
 
@@ -121,7 +121,7 @@ void fork_command(info_type *infffo)
 		{
 			infffo->status = WEXITSTATUS(infffo->status);
 			if (infffo->status == 126)
-				print_error(infffo, "Permission denied\n");
+				printerr(infffo, "Permission denied\n");
 		}
 	}
 }

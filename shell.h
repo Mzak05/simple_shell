@@ -103,125 +103,85 @@ typedef struct builtin
 	int (*func)(info_type *);
 } builtin_table;
 
-
-/* find_cmd.c */
-int shell_loop(info_type *, char **);
-int find_builtin_cmd(info_type *);
-void find_command(info_type *);
-void fork_command(info_type *);
-
-/* get_path.c */
+int shells(info_type *, char **);
+int fbc(info_type *);
+void fcmd(info_type *);
+void fkcmd(info_type *);
 int is_command(info_type *, char *);
 char *dupli_chars(char *, int, int);
 char *find_path(info_type *, char *, char *);
-
-/* loophsh.c */
 int loophsh(char **);
-
-/* error_print.c */
 void _eput_str(char *);
 int _eputchar(char);
 int _put_fd(char c, int fd);
 int _puts_fd(char *str, int fd);
-
-/* str_len.c */
 int _strlength(char *achstr);
 int _str_comp(char *fs, char *ss);
 char *starts_with(const char *ssearch, const char *ssfind);
 char *_str_cat(char *desti, char *sbuf);
-
-/* strcopy.c */
 char *_str_copy(char *desti, char *sbuf);
 char *_str_dup(const char *dupstr);
 void _puts(char *prstr);
 int _putchar(char cp);
-
-/* strncopy.c */
 char *_strn_copy(char *desti, char *sstr, int cc);
 char *_strncat(char *desti, char *sstr, int bu);
 char *_str_chr(char *sp, char sc);
-
-/* split_str.c */
 char **str_split(char *achstr, char *dli);
 char **str_split2(char *achstr, char dli);
-
-/* memory_set.c */
 char *_memory_set(char *ptr, char by, unsigned int nb);
 void str_free(char **sos);
 void *_realloc(void *ptr, unsigned int oldsz, unsigned int newsz);
-
-/* free_ptr.c */
 int ptr_free(void **);
-
-/* interactive.c */
 int interactive(info_type *);
 int is_delim(char, char *);
 int _is_alpha(int);
 int _sti(char *);
-
-/* convert_str.c */
-int _errors_sti(char *);
-void print_error(info_type *, char *);
-int print_decimal(int, int);
+int errorst(char *);
+void printerr(info_type *, char *);
+int printdec(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
-
-/* my_dir.c */
 int _myexit(info_type *infffo);
-int _myhelp(info_type *infffo);
+int helpmy(info_type *infffo);
 
-/* set_alias.c */
 int _myhistory(info_type *infffo);
 int _myalias(info_type *infffo);
 
-/*get_line.c */
 ssize_t get_input(info_type *);
 int _getline(info_type *, char **, size_t *);
 void sigintHandler(int);
-
-/* get_info.c */
 void clear_info(info_type *);
 void set_info(info_type *, char **);
 void free_info(info_type *, int);
-
-/* my_environ.c */
 char *_get_env(info_type *infffo, const char *envname);
 int _myenvir(info_type *infffo);
 int _mysetenv(info_type *infffo);
 int _my_unsetenv(info_type *infffo);
 int p_env_list(info_type *infffo);
-
-/* get_env.c */
 char **get_env(info_type *);
 int _unsetenv(info_type *, char *);
 int _setenviro(info_type *, char *, char *);
 
-/* get_history.c */
 char *get_history_f(info_type *info);
 int write_history(info_type *info);
 int read_hist(info_type *info);
 int build_history_l(info_type *info, char *buf, int linecount);
 int renumber_history(info_type *info);
-
-/* get_nod.c */
 list_t *add_node(list_t **, const char *, int);
 list_t *add_node_end(list_t **, const char *, int);
 size_t prt_list_str(const list_t *);
 int delete_node(list_t **, unsigned int);
 void free_list(list_t **);
 
-/* list_len.c */
 size_t list_len(const list_t *pt);
 char **list_to_str(list_t *first);
 size_t print_list(const list_t *pt);
 list_t *node_starts_with(list_t *, char *, char);
 ssize_t get_node(list_t *first, list_t *node);
-
-/* chain.c */
 int is_chain_del(info_type *, char *, size_t *);
 void check_chain(info_type *, char *, size_t *, size_t, size_t);
 int replace_alias(info_type *);
 int replace_vars_str(info_type *);
-int replace_str(char **, char *);
+int replacestr(char **, char *);
 
 #endif

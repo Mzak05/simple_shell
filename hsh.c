@@ -31,7 +31,7 @@ int main(int ac, char **argv)
 	}
 	p_env_list(info);
 	read_hist(info);
-	shell_loop(info, argv);
+	shells(info, argv);
 	return (EXIT_SUCCESS);
 }
 

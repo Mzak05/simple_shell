@@ -5,23 +5,23 @@ int _myexit(info_type *infffo)
 
 	if (infffo->argv[1])  
 	{
-		exit_check = _errors_sti(infffo->argv[1]);
+		exit_check = errorst(infffo->argv[1]);
 		if (exit_check == -1)
 		{
 			infffo->status = 2;
-			print_error(infffo, "Illegal number: ");
+			printerr(infffo, "Illegal number: ");
 			_eput_str(infffo->argv[1]);
 			_eputchar('\n');
 			return (1);
 		}
-		infffo->err_num = _errors_sti(infffo->argv[1]);
+		infffo->err_num = errorst(infffo->argv[1]);
 		return (-2);
 	}
 	infffo->err_num = -1;
 	return (-2);
 }
 
-int _myhelp(info_type *infffo)
+int helpmy(info_type *infffo)
 {
 	char **arg_arr;
 
