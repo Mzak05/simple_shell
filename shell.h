@@ -168,7 +168,6 @@ void remove_comments(char *);
 
 /* my_dir.c */
 int _myexit(info_type *infffo);
-int _mydir(info_type *infffo);
 int _myhelp(info_type *infffo);
 
 /* set_alias.c */
