@@ -1,23 +1,10 @@
 #include "shell.h"
-/**
- * _myhistory - displays the history list, one command by line, preceded
- * with line numbers, starting at 0.
- * @infffo: Structure containing potential arguments
- *  Return: Always 0
- */
 int _myhistory(info_type *infffo)
 {
 	print_list(infffo->history);
 	return (0);
 }
 
-/**
- * unset_alias - sets alias to string
- * @infffo: parameter struct
- * @achstr: the string alias
- *
- * Return: Always 0 on success, 1 on error
- */
 int unset_alias(info_type *infffo, char *achstr)
 {
 	char *p, c;
@@ -34,13 +21,6 @@ int unset_alias(info_type *infffo, char *achstr)
 	return (ret);
 }
 
-/**
- * set_alias - sets alias to string
- * @infffo: parameter struct
- * @achstr: the string alias
- *
- * Return: Always 0 on success, 1 on error
- */
 int set_alias(info_type *infffo, char *achstr)
 {
 	char *p;
@@ -54,13 +34,6 @@ int set_alias(info_type *infffo, char *achstr)
 	unset_alias(infffo, achstr);
 	return (add_node_end(&(infffo->alias), achstr, 0) == NULL);
 }
-
-/**
- * print_alias - prints an alias string
- * @node: the alias node
- *
- * Return: Always 0 on success, 1 on error
- */
 int print_alias(list_t *node)
 {
 	char *p = NULL, *a = NULL;
@@ -78,11 +51,6 @@ int print_alias(list_t *node)
 	return (1);
 }
 
-/**
- * _myalias - mimics the alias builtin (man alias)
- * @infffo: Structure containing potential arguments.
- *  Return: Always 0
- */
 int _myalias(info_type *infffo)
 {
 	int i = 0;

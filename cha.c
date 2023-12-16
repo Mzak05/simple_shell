@@ -1,11 +1,5 @@
 #include "shell.h"
-/**
- * is_chain_del - test if current char in buffer is a chain delimeter
- * @infffo: the parameter struct
- * @bufbuf: the char buffer
- * @p: address of current position in buf
- * Return: 1 if chain delimeter, 0 otherwise
- */
+
 int is_chain_del(info_type *infffo, char *bufbuf, size_t *p)
 {
 	size_t j = *p;
@@ -22,9 +16,9 @@ int is_chain_del(info_type *infffo, char *bufbuf, size_t *p)
 		j++;
 		infffo->cmd_buf_type = CMD_AND;
 	}
-	else if (bufbuf[j] == ';') /* found end of this command */
+	else if (bufbuf[j] == ';')
 	{
-		bufbuf[j] = 0; /* replace semicolon with null */
+		bufbuf[j] = 0; 
 		infffo->cmd_buf_type = CMD_CHAIN;
 	}
 	else
@@ -33,16 +27,7 @@ int is_chain_del(info_type *infffo, char *bufbuf, size_t *p)
 	return (1);
 }
 
-/**
- * check_chain - checks we should continue chaining based on last status
- * @infffo: the parameter struct
- * @bufbuf: the char buffer
- * @p: address of current position in buffer
- * @i: starting position in buf
- * @len: length of buffer
- *
- * Return: Void
- */
+
 void check_chain(info_type *infffo, char *bufbuf, size_t *p, size_t i, size_t len)
 {
 	size_t j = *p;
@@ -67,12 +52,6 @@ void check_chain(info_type *infffo, char *bufbuf, size_t *p, size_t i, size_t le
 	*p = j;
 }
 
-/**
- * replace_alias - replaces an aliases in the tokenized string
- * @infffo: the parameter struct
- *
- * Return: 1 if replaced, 0 otherwise
- */
 int replace_alias(info_type *infffo)
 {
 	int i;
@@ -96,12 +75,7 @@ int replace_alias(info_type *infffo)
 	return (1);
 }
 
-/**
- * replace_vars_str - replaces vars in the tokenized string
- * @infffo: the parameter struct
- *
- * Return: 1 if replaced, 0 otherwise
- */
+
 int replace_vars_str(info_type *infffo)
 {
 	int i = 0;
@@ -137,13 +111,7 @@ int replace_vars_str(info_type *infffo)
 	return (0);
 }
 
-/**
- * replace_str - replaces string
- * @previous: address of old string
- * @next: new string
- *
- * Return: 1 if replaced, 0 otherwise
- */
+
 int replace_str(char **previous, char *next)
 {
 	free(*previous);

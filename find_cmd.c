@@ -1,11 +1,4 @@
 #include "shell.h"
-/**
- *shell_loop - main shell loop
- * @infffo: the parameter & return info struct
- * @argv: the argument vector from main()
- *
- * Return: 0 on success, 1 on error, or error code
- */
 int shell_loop(info_type *infffo, char **argv)
 {
 	ssize_t r = 0;
@@ -41,16 +34,6 @@ int shell_loop(info_type *infffo, char **argv)
 	}
 	return (builtin_ret);
 }
-
-/**
- * find_builtin_cmd - finds a builtin command
- * @infffo: the parameter & return info struct
- *
- * Return: -1 if builtin not found,
- *			0 if builtin executed successfully,
- *			1 if builtin found but not successful,
- *			-2 if builtin signals exit()
- */
 int find_builtin_cmd(info_type *infffo)
 {
 	int i, built_in_ret = -1;
@@ -75,12 +58,6 @@ int find_builtin_cmd(info_type *infffo)
 	return (built_in_ret);
 }
 
-/**
- * find_command - finds a command in PATH
- * @infffo: the parameter & return info struct
- *
- * Return: void
- */
 void find_command(info_type *infffo)
 {
 	char *path = NULL;
@@ -117,12 +94,6 @@ void find_command(info_type *infffo)
 	}
 }
 
-/**
- * fork_command - forks a an exec thread to run cmd
- * @infffo: the parameter & return info struct
- *
- * Return: void
- */
 void fork_command(info_type *infffo)
 {
 	pid_t child_pid;
@@ -130,7 +101,6 @@ void fork_command(info_type *infffo)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		/* TODO: PUT ERROR FUNCTION */
 		perror("Error:");
 		return;
 	}
@@ -143,7 +113,6 @@ void fork_command(info_type *infffo)
 				exit(126);
 			exit(1);
 		}
-		/* TODO: PUT ERROR FUNCTION */
 	}
 	else
 	{

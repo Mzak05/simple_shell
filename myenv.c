@@ -1,22 +1,10 @@
 #include "shell.h"
-/**
- * _myenvir - prints the current environment
- * @infffo: Structure containing potential arguments
- * Return: Always 0
- */
+
 int _myenvir(info_type *infffo)
 {
 	prt_list_str(infffo->env);
 	return (0);
 }
-
-/**
- * _get_env - gets the value of an environ variable
- * @infffo: Structure containing potential arguments
- * @envname: env var name
- *
- * Return: the value
- */
 char *_get_env(info_type *infffo, const char *envname)
 {
 	list_t *node = infffo->env;
@@ -32,11 +20,6 @@ char *_get_env(info_type *infffo, const char *envname)
 	return (NULL);
 }
 
-/**
- * _mysetenv - Initialize a new environment variable
- * @infffo: Structure containing potential arguments
- *  Return: Always 0
- */
 int _mysetenv(info_type *infffo)
 {
 	if (infffo->argc != 3)
@@ -49,11 +32,6 @@ int _mysetenv(info_type *infffo)
 	return (1);
 }
 
-/**
- * _my_unsetenv - Remove an environment variable
- * @infffo: Structure containing potential arguments
- *  Return: Always 0
- */
 int _my_unsetenv(info_type *infffo)
 {
 	int i;
@@ -69,11 +47,6 @@ int _my_unsetenv(info_type *infffo)
 	return (0);
 }
 
-/**
- * p_env_list - populates env linked list
- * @infffo: Structure containing potential arguments
- * Return: Always 0
- */
 int p_env_list(info_type *infffo)
 {
 	list_t *node = NULL;

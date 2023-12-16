@@ -1,9 +1,4 @@
 #include "shell.h"
-/**
- * get_env - returns the string array copy of our environ
- * @infffo: Structure containing potential arguments
- * Return: Always 0
- */
 char **get_env(info_type *infffo)
 {
 	if (!infffo->environ || infffo->env_changed)
@@ -15,12 +10,6 @@ char **get_env(info_type *infffo)
 	return (infffo->environ);
 }
 
-/**
- * _unsetenv - Remove an environment variable
- * @infffo: Structure containing potential arguments
- *  Return: 1 on delete, 0 otherwise
- * @varia: the string env var property
- */
 int _unsetenv(info_type *infffo, char *varia)
 {
 	list_t *node = infffo->env;
@@ -45,16 +34,6 @@ int _unsetenv(info_type *infffo, char *varia)
 	}
 	return (infffo->env_changed);
 }
-
-/**
- * _setenviro - Initialize a new environment variable,
- *             or modify an existing one
- * @infffo: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- * @varia: the string env var property
- * @value: the string env var value
- *  Return: Always 0
- */
 int _setenviro(info_type *infffo, char *varia, char *val)
 {
 	char *buffer = NULL;
