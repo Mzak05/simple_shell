@@ -61,7 +61,6 @@ int find_builtin_cmd(info_type *infffo)
 		{"history", _myhistory},
 		{"setenv", _mysetenv},
 		{"unsetenv", _my_unsetenv},
-		{"cd", _mydir},
 		{"alias", _myalias},
 		{NULL, NULL}
 	};
