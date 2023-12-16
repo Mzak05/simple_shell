@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
- * get_history_f - gets the history file
- * @infffo: parameter struct
+ * get_history_f - filhestorya
+ * @infffo: stry
  *
- * Return: allocated string containg history file
+ * Return: strhestorya
  */
 
 char *get_history_f(info_type *infffo)
@@ -24,10 +24,9 @@ char *get_history_f(info_type *infffo)
 }
 
 /**
- * write_history - creates a file, or appends to an existing file
- * @infffo: the parameter struct
- *
- * Return: 1 on success, else -1
+ * write_history - creafile
+ * @infffo: stru
+ * Return: 1 or -1
  */
 int write_history(info_type *infffo)
 {
@@ -52,12 +51,6 @@ int write_history(info_type *infffo)
 	return (1);
 }
 
-/**
- * read_hist - reads history from file
- * @infffo: the parameter struct
- *
- * Return: histcount on success, 0 otherwise
- */
 int read_hist(info_type *infffo)
 {
 	int i, last = 0, linecount = 0;
@@ -101,16 +94,6 @@ int read_hist(info_type *infffo)
 	return (infffo->histcount);
 }
 
-/**
- * build_history_l - adds entry to a history linked list
- * @infffo: Structure containing potential arguments. Used to maintain
- * @bufbuf: buffer
- * @linecount: the history linecount, histcount
- *
- * Return: Always 0
- */
-int build_history_l(info_type *infffo, char *buf, int linecount)
-{
 	list_t *node = NULL;
 
 	if (infffo->history)
@@ -122,12 +105,6 @@ int build_history_l(info_type *infffo, char *buf, int linecount)
 	return (0);
 }
 
-/**
- * renumber_history - renumbers the history linked list after changes
- * @infffo: Structure containing potential arguments. Used to maintain
- *
- * Return: the new histcount
- */
 int renumber_history(info_type *infffo)
 {
 	list_t *node = infffo->history;
